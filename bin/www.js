@@ -3,10 +3,11 @@
 /**
  * Module dependencies.
  */
+import debug from 'debug';
+const myDebug = debug('webdev:server');
+import app from '../app.js';
 
-var app = require('../app');
-var debug = require('debug')('webdev:server');
-var http = require('http');
+import { createServer } from 'http';
 
 /**
  * Get port from environment and store in Express.
@@ -19,7 +20,7 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -86,5 +87,5 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  myDebug('Listening on ' + bind);
 }
