@@ -5,11 +5,14 @@ export class Event {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({type: "timestamptz"})
     pointInTime: Date;
 
     @Column()
     description: string;
+
+    @Column({nullable: true})
+    details?: string;
 
     @Column()
     userId: string;

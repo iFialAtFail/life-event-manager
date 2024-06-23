@@ -14,7 +14,7 @@ import { Event } from './events/entities/event.entity';
       port: 5432,
       username: 'postgres',
       password: 'postgres',
-      database: 'test',
+      database: 'postgres',
       entities: [Event],
       synchronize: true,
     })
