@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { EventsModule } from './events/events.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Event } from './events/entities/event.entity';
+import { TagsModule } from './tags/tags.module';
+import { Tag } from './tags/entities/tag.entity';
 
 @Module({
   imports: [
@@ -15,9 +17,10 @@ import { Event } from './events/entities/event.entity';
       username: 'postgres',
       password: 'postgres',
       database: 'postgres',
-      entities: [Event],
+      entities: [Event, Tag],
       synchronize: true,
-    })
+    }),
+    TagsModule
   ],
   controllers: [AppController],
   providers: [AppService],
